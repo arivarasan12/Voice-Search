@@ -20,7 +20,7 @@ function setInterim(val) {
 }
 
 function setFinal(val) {
-  const pulseNote = document.querySelector('[data-tour-id="pulseNote"]');
+  const pulseNote = document.querySelector('[data-tour-id="searchnode"]');
   const pulseNoteTA = document.querySelector('[data-test-id="2015070806333408619136"]');
   pulseNoteTA.value = val;
 }
