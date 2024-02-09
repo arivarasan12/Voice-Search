@@ -1,6 +1,3 @@
-// Functions in this js file and element references are done using Pega 8.6
-// Modify the references according to the Pega version.
-
 function showStatus() {
   const speechStatusDiv = document.querySelector('[data-tour-id="speechStatus"]');
   const speechStatus = speechStatusDiv.querySelector('.field-item');
@@ -26,17 +23,16 @@ function setFinal(val) {
 }
 
 
-// Speech Recognition API
+
 if ("webkitSpeechRecognition" in window) {
   const speechRecognition = new webkitSpeechRecognition();
 
   let final_transcript = "";
 
-  // Speech Recognition properties
+
   speechRecognition.continuous = true;
   speechRecognition.interimResults = true;
 
-  // Events
   speechRecognition.onstart = () => {
     //showStatus();
   };
@@ -51,13 +47,10 @@ if ("webkitSpeechRecognition" in window) {
   };
 
   speechRecognition.onresult = (event) => {
-    // Create the interim transcript string locally because we don't want it to persist like final transcript
+  
     let interim_transcript = "";
-
-    // Loop through the results from the speech recognition object.
     for (let i = event.resultIndex; i < event.results.length; ++i) {
-      // If the result item is Final, add it to Final Transcript,
-      // Else add it to Interim transcript
+      
       if (event.results[i].isFinal) {
         final_transcript += event.results[i][0].transcript;
       } else {
@@ -87,4 +80,3 @@ if ("webkitSpeechRecognition" in window) {
   });
 
 }
-//static-content-hash-trigger-GCC
