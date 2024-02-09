@@ -1,0 +1,139 @@
+<html class="no-js" lang="en" nighteye="disabled"><head>
+  <!-- Meta Tags -->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="ThemeMarch">
+  <!-- Site Title -->
+  <title>Package Bill Invoice</title>
+  <link rel="stylesheet" href="https://ivonne-seven.vercel.app/assets/css/style.css">
+</head>
+
+<body>
+  <div class="cs-container">
+    <div class="cs-bg-white cs-border-radious25">
+      <div class="cs-bottom-bg2">
+        <div class="cs-top-bg2">
+          <div class="cs-invoice cs-style1 cs-bg-none">
+            <div>
+              <div class="cs-invoice_in" id="download_section">
+                <div>
+                  <div class="cs-logo"><img src="https://i.ibb.co/XZHV1N5/image-2023-12-30-140852111.png" alt="Logo"></div>
+                </div>
+                <div class="cs-mb50">
+                  <div class="cs-text_right">
+                    <b class="cs-primary_color">INVOICE</b>
+                    <p class="cs-m0">
+                      Invoice # TMT-C-2023-0808 <br> Invoice<p id="demo"></p>Invoice Amount <%= tools.getProperty("pyWorkPage.FinalTotal") %> (Rupees) <br>
+
+                    </p>
+                  </div>
+                  <div class="cs-invoice_left">
+                    <b class="cs-primary_color">BILLED TO:</b>
+                    <p>
+                        <%= tools.getProperty("pyWorkPage.CustomerDetails.CustomerName") %>
+                        <br>
+                      <!-- Johan Smith <br> Ivonne Company, <br> 365 Bloor Street East, Toronto, <br> Ontario, M4W 3L4, -->
+                      <%= tools.getProperty("pyWorkPage.CustomerDetails.Address") %>
+                      India <br> <%= tools.getProperty("pyWorkPage.CustomerDetails.EmailID") %>
+                    </p>
+                  </div>
+                </div>
+                <div class="cs-table cs-style2 tm-border-none padding-rignt-left">
+                  <div class="tm-border-none">
+                    <div class="cs-table_responsive">
+                      <div class="tm-border-1px"></div><table class="cs-mb30">
+                        
+                        <thead class="border-bottom-1 cs-mb50">
+                          <tr class="cs-secondary_color">
+                            <th class="cs-width_5 cs-normal">NAME</th>
+                            <th class="cs-width_2 cs-normal">QUANTITY</th>
+                            <th class="cs-width_2 cs-normal">PRICE</th>
+                            <th class="cs-width_2 cs-normal cs-text_right">AMOUNT (RUPEES)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                            <pega:forEach name="pyWorkPage.CartItems">
+                          <tr class="border-bottom-1">
+                            <td class="cs-width_5 cs-primary_color cs-f15">
+                                <pega:reference name="$THIS.ItemName" />
+                            </td>
+                            <td class="cs-width_2 cs-primary_color cs-f15"><pega:reference name="$THIS.Count" /></td>
+                            <td class="cs-width_2 cs-primary_color cs-f15"><pega:reference name="$THIS.Price" /></td>
+                            <td class="cs-width_2 cs-text_right cs-primary_color cs-f15"><pega:reference name="$THIS.Total" /></td>
+                          </tr>
+                        </pega:forEach>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="display-flex space-between mq-align-items">
+                  <div class="cs-width_7 cs-mt70">
+                    <p class="cs-primary_color cs-bold cs-f16 cs-uppercase">Payment Method</p>
+                    <div class="display-flex space-between cs-mb30">
+                      <div class="cs-m0">
+                        <p class="cs-primary_color cs-mb3 cs-semi_bold">Debit Card:</p>
+                        <p class="cs-lh-165 cs-m0">
+                          ICIC BANK<br> Chennai<br> India
+                        </p>
+                      </div>
+                      <div>
+                        <p class="cs-primary_color cs-mb3 cs-semi_bold">BANK INFO:</p>
+                        <p class="cs-lh-165">
+                          3752 4521 8465 45621 <br> State Bank of India <br> Park Avennue
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cs-width_4">
+                    <p class="cs-secondary_color cs-text_right cs-f15">Total: <span class="cs-ml30 cs-primary_color cs-semi_bold">Rs.<%= tools.getProperty("pyWorkPage.FinalTotal") %></span> </p>
+                    <p class="cs-secondary_color cs-text_right cs-f15">Round Off: <span class=" cs-ml30 cs-primary_color cs-semi_bold">Rs.<%= tools.getProperty("pyWorkPage.FinalTotal") %></span> </p>
+                    <div class="cs-border-50percent"></div>
+                    <p class="cs-secondary_color cs-text_right cs-f15 cs-mt15">Amount Payable: <span class="cs-ml30 cs-primary_color cs-semi_bold">Rs.<%= tools.getProperty("pyWorkPage.FinalTotal") %></span> </p>
+                    <div class="cs-border-50percent"></div>
+                  </div>
+                </div>
+                <div class="cs-mb50">
+                  <div class="cs-invoice_left">
+                    <div>
+                      <p class="cs-primary_color cs-mb3 cs-semi_bold">Term &amp; Conditions:</p>
+                      <p class="cs-lh-165">
+                        All the above Information are part of the Medico Plus<br>© 2023 All Rights Reserved.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="display-flex justify-content-flex-end">
+                    <div class="cs-text_right">
+                      <b class="cs-primary_color">William Stark</b>
+                      <p>Branch Manager</p>
+                      <p class="cs-border-50percent"></p>
+                      <img src="https://ivonne-seven.vercel.app/assets/img/signature.png" alt="...">
+                    </div>
+                  </div>
+                </div>
+                <div class=" display-flex space-between flex-wrap">
+                  <p class=" cs-primary_color cs-uppercase cs-semi_bold ">Thank you for trusting us</p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src=" https://ivonne-seven.vercel.app/assets/js/jquery.min.js "></script>
+  <script src=" https://ivonne-seven.vercel.app/assets/js/html2canvas.min.js "></script>
+  <script src=" https://ivonne-seven.vercel.app/assets/js/jspdf.min.js "></script>
+  <script src=" https://ivonne-seven.vercel.app/assets/js/main.js "></script>
+  <script>
+    const d =  new Date();
+    const temm = d.toLocaleDateString();
+    document.getElementById("demo").innerHTML = temm;
+    </script>
+
+</body>
+</html>
